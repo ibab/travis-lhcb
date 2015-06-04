@@ -15,7 +15,7 @@ before_install:
 install:
     - 'sudo sh -c "echo CVMFS_HTTP_PROXY=\"http://ca-proxy.cern.ch:3128;http://ca-proxy1.cern.ch:3128|http://ca-proxy2.cern.ch:3128|http://ca-proxy3.cern.ch:3128|http://ca-proxy4.cern.ch:3128|http://ca-proxy5.cern.ch:3128\" >> /etc/cvmfs/default.local"'
     - 'sudo sh -c "echo CVMFS_REPOSITORIES=lhcb.cern.ch >> /etc/cvmfs/default.local"'
-    - 'sudo sh -c user_allow_other >> /etc/fuse.conf'
+    - 'sudo sh -c "user_allow_other >> /etc/fuse.conf"'
     - sudo service autofs restart
 script:
     - sudo cvmfs_config chksetup
