@@ -1,8 +1,13 @@
 
-
+language: c
 
 before_install:
-    - sudo apt-get install -y autofs attr gdb uuid-dev uuid
+    # Set up user-mode FUSE
+    - sudo apt-get install -qq libfuse-dev pkg-config fuse user-mode-linux
+    - sudo mknod /dev/fuse c 10 229
+    - sudo chmod 666 /dev/fuse
+    # Install CVMFS
+    - sudo apt-get install -y autofs attr gdb uuid-dev uuid fuse
     - wget https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-default_1.1-1_all.deb
     - sudo dpkg -i cvmfs-config-default_1.1-1_all.deb
     - wget https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs_2.1.20_amd64.deb
