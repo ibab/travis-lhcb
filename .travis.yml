@@ -9,8 +9,8 @@ before_install:
     - sudo dpkg -i cvmfs_2.1.20_amd64.deb
 install:
     - 'sudo sh -c "echo CVMFS_HTTP_PROXY=\"http://ca-proxy.cern.ch:3128;http://ca-proxy1.cern.ch:3128|http://ca-proxy2.cern.ch:3128|http://ca-proxy3.cern.ch:3128|http://ca-proxy4.cern.ch:3128|http://ca-proxy5.cern.ch:3128\" >> /etc/cvmfs/default.local"'
-    - 'sudo sh -c "echo CVMFS_REPOSITORIES=lhcb >> /etc/cvmfs/default.local"'
-    - sudo service autofs start
+    - 'sudo sh -c "echo CVMFS_REPOSITORIES=lhcb.cern.ch >> /etc/cvmfs/default.local"'
+    - sudo service autofs restart
 script:
     - sudo cvmfs_config chksetup
     - sudo cvmfs_config probe
