@@ -19,6 +19,6 @@ install:
     - sudo usermod -a -G fuse cvmfs
     - sudo service autofs restart
 script:
-    - ./setup_fuse.sh cvmfs_config chksetup
+    - ./setup_fuse.sh 'cvmfs_config chksetup'
 
 

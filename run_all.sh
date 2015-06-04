@@ -10,7 +10,7 @@ cat > umltest.inner.sh <<EOF
    set -x
    insmod /usr/lib/uml/modules/\`uname -r\`/kernel/fs/fuse/fuse.ko
    cd "$CURDIR"
-   $1
+   ./$1
    echo Success
 )
 echo "\$?" > "$CURDIR"/umltest.status
